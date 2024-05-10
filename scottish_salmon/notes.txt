@@ -1,0 +1,147 @@
+Salmon and Sea Trout fishing in Scotland
+
+Need more context to what "Netting effort" is if we are going to try to build conclusions, or a ML model, on its data.
+
+
+
+ML notes:
+
+For our region model we need to make sure Orkney is included as it is a possibility, however there are only 
+three occurrences we also need to make sure that it is a very small weight on expected outcomes of the model, if the 
+weight is too heavy then we can remove it if its omission will provide a substantial enough improvement to our model accuracy
+
+For our method model, we have a similar situation with released catches as there are only 38 total occurrences out of 
+our 25,000 total recorded catches where the catch was then released back into the water. There is also a bias in region this occurs 
+as well as a bias towards the catch method which is then released. Again, we should only omit this outcome if there is a significant 
+improvement in our model's accuracy 
+
+We can build two distinct Machine Learning models each on categorical variables, region and method.
+- We would likely use an SGD model due to our sample size of less than 100k samples, and all data is clearly labeled
+- We can also look at kernel approximation to see if it would produce better results on our sample size
+
+
+Need to better understand our catching methods before we make an ML model for it i.e:
+- What region is most commonly associated with catching method.
+- What fish is most commonly associated with catching method.
+- What are the netting effort trends of each catching method.
+- Totals for each netting method.
+- Average weight, number, netting effort, etc for each catching method.
+- Is there a time discrepancy? Do certain months or years align with specific methods?
+
+We have some good regional understandings so far, can likely build that model soon, however we definitely need a better understanding of
+catch method before we build an ML model for that. 
+
+
+
+
+
+
+Data Viz notes:
+
+We want to continue grouping our data to find insights based on method and region, as well as try to find some more
+interesting results such as the massive decrease in fish caught over the years found through our time-series analysis
+
+We have pie charts, bar graphs, and lineplots so far but we could also try to find a variable or set of variables that 
+would allow us to showcase other data visualization methods to have a more robust and all-encompassing project.
+
+Also, would like to take a look at Netting Effort by fish 
+- Maybe as another pie chart to see how each fish type compares to total netting effort 
+- Would likely need to use the weight columns to define average netting effort by fish weight
+- Can calculate the proportion of fish to average netting effort to try to get a better effort of the netting effort per fish
+
+Something we could check for netting effort is taking the total weight for each fish, as well as the proportion of weights of all fish,
+and see if this can be used to calculate a netting effort proportion as it very likely that "more weight" = "more effort"
+
+**Do some quick insights on our dropped region of "Orkney" and its minimal amount of data.**
+
+
+Should probably take a look at fish weight trends by region as well
+
+Originally considered a pie chart, but now I'm thinking a barplot could be better for taking a look at total catching method
+since there is such a heavy lean towards the two retained outcomes over the two released outcomes 
+
+(copy) Need to better understand our catching methods before we make an ML model for it i.e:
+- What region is most commonly associated with catching method.
+- What fish is most commonly associated with catching method.
+- What are the netting effort trends of each catching method.
+- Totals for each netting method.
+- Average weight, number, netting effort, etc for each catching method.
+- Is there a time discrepancy? Do certain months or years align with specific methods?
+
+We have some good regional understandings so far, can likely build that model soon, however we definitely need a better understanding of
+catch method before we build an ML model for that. (end copy)
+
+
+
+
+
+Dataset notes:
+
+Wild Salmon and Trout seem to be predominately caught in the North East and East regions, with a sharp dropoff in the last 
+25 years (since 1998) that more drastically affected the East region.
+
+Finnock was relatively uncaught or unrecorded until about 20 years ago (2003). And has lately spiked in Moray Firth. 
+
+Farmed Salmon mainly occurs in the Northwest and West coast regions. Least likely to occur in the East and North East.
+
+Netting Effort is highest in North East followed by Solway, then Moray Firth and North regions. Even though the East region 
+has a high level of wild fish (both salmon and trout) caught the overall netting effort is relatively low as it is the second lowest total netting effort
+recorded. 
+
+The only regions with a significant released method are Solway (Fixed Engine: Released) and the East region (Net and Coble: Released)
+
+Outer Hebrides has a very low amount of total catches, need to be wary of this when looking at insights in data
+
+The dominant catching method in most regions is Fixed Engine: Retained the only regions that differ are Outer Hebrides and the East, where the
+main catching method is Net and Coble: Retained. 
+
+All fishiing has been steadily declining since the mid-1970s except for a few spikes.
+
+The East region had by far the most wild fish caught until 1990 when it completely drops to well-below other regions, might be good to try and 
+research why there has been such a steep drop in that region specifically
+
+Farmed fish has either dropped off recently after only starting in the late 1980's/early 1990's or the recent data for farmed fish is not 
+included in the dataset.
+- Could be good to research scottish salmon farming regulations
+- Regions with a high level of farmed fish seem to also have a higher Netting Effort; could be good to look into since East region's 
+netting effort was so low in comparison to the amount of wild fish caught.
+
+
+
+
+
+
+
+
+Other project notes:
+
+Now that we have proportional data, as well as sums and other insightful results we can start to build an economic profile of fishing in Scotland.
+
+We can also start looking at ML model since we some baseline metrics that we can use for checking accuracy, in addition it may be hard but we could
+try to build a regression model on {fish} number and/or weight. Also, a classification model for fish types could be useful since we have data that could
+build an inferential model.
+
+
+
+
+
+
+Notes for Conclusions:
+
+***ML Model - (Null)
+
+
+***Data - 
+
+Proportions of fish:
+
+Wild Multi-sea Winter Salmon: about 0.29
+Wild One-sea Winter Salmon: about 0.43
+Sea Trout: about 0.28
+
+Other: 0.00026 (can be considered insignificant compared to rest)
+
+We can already pull interesting data for each fish type as well as region, catch method, and netting effort. We also have time-series data to show 
+how the industry has changed over time.
+
+Do some quick insights on our dropped region of "Orkney" and its minimal amount of data.
